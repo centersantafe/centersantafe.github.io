@@ -1,6 +1,6 @@
 title: CENTER Archive
 description: A new animated archive for CENTER Santa Fe
-repository: /centersantafe/centersantafe.github.io
+repository: centersantafe/centersantafe.github.io
 baseurl:
 safe: true
 social:
