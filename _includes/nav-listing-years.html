@@ -1,0 +1,15 @@
+<nav class="year-nav" style="margin: 1em 0;">
+  <ul style="display: flex; gap: 1em; list-style: none; padding: 0; justify-content: center;">
+    {% assign listing_years = site.pages | where_exp: "page", "page.year != nil" %}
+    {% assign sorted_years = listing_years | sort: "year" | reverse %}
+    {% for year_page in sorted_years %}
+    {% if year_page.year %}
+    <li>
+      <a href="{{ year_page.url | relative_url }}" {% if page.year==year_page.year %}class="active-year" {% endif %}>
+        {{ year_page.year }}
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

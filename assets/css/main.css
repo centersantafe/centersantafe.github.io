@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 
 
 @media screen {
@@ -15,45 +16,453 @@
   html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    background-color: var(--bs-body-bg) !important;
+    color: var(--bs-body-color) !important;
+    font-family: "Nunito", sans-serif;
     line-height: 1.4em;
-    background-color: #fefefe;
-    font-size: 15px;
+    font-size: 18px;
     width:100%;
   }
 
 
 .container {
-  width:60rem;
+  max-width: 50rem;
   margin: 0 auto;
-  clear:both;
+  clear: both;
+}
+
+.container.full-width {
+  max-width: 95rem;
+  margin: 0 auto;
+  clear: both;
+}
+
+#tag-cloud {
+  min-height:100vh;
+}
+
+.tagcloud-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+#tag-cloud h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #333;
+}
+
+#tag-cloud a {
+  font-size: .8rem;
+  font-weight: normal;
+  margin: p .5rem 0 0;
+  text-decoration: none;
+}
+
+#tag-cloud a:hover {
+  color: #000; /* Darker color on hover */
+  text-decoration: underline;
+}
+
+.tag-index-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.tag-index-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+  width:1.5rem
+}
+
+.tag-index-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left:1rem;
+  line-height: 1.1rem;
+}
+
+.tag-index-link {
+  font-size: 1rem;
+  color: #666;
+  text-decoration: none;
+  margin: 0 5px 0 0 ;
+  transition: text-decoration 0.2s;
+}
+
+.tag-index-link:hover {
+  text-decoration: underline;
 }
 
 
+.social-buttons {
+  gap: 0.5rem;
+}
+
+.social-buttons .fa {
+  font-size: 1.3rem;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.social-buttons .fa:hover {
+  color: #e94e77;
+}
+
+
+
+
+#dark-mode-toggle {
+  margin-right: 1rem;
+}
+
+/* Style for the year header */
+.year-header {
+  margin-top: 20px;
+  color: var(--bs-body-color); 
+  font-size: 24px;
+}
+
+/* Style for the year container */
+.year-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Style for the project link */
+.project-link {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+/* Style for the project thumbnail */
+.project-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+#imageModal #modalImage {
+  max-width: 80vw;
+  max-width: 100%;
+  max-height: 90vh;
+}
+
+
+.jumbotron {
+  position: relative; /* Ensure the jumbotron is the positioning context */
+  background-size: cover; /* Ensure the background image covers the entire jumbotron */
+  background-position: center;
+  color: white;
+  height: 50vh; /* default height */
+  margin-bottom: 0;
+  padding:2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;/* vertical centering */
+  align-items: center; /* horizontal centering */
+  height: 100%;
+}
+
+.jumbotron.winner {
+  margin-bottom: 3rem;
+}
+
+.jumbotron.program {
+  margin-bottom: 1rem;
+  height: 40vh;
+}
+
+.jumbotron .overlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the jumbotron */
+  left: 0; /* Align to the left */
+  width: 100%; /* Stretch across the full width */
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  color: white; /* White text for contrast */
+  padding: .8rem 2rem;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.overlay h1 {
+  margin: 0;
+  /* Remove default margin for the title */
+  font-size: 2.5rem;
+  /* Adjust font size for the title */
+  text-align: left;
+  ;
+}
+
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron p {
+  text-align: center;
+}
+
+
+.jumbotron .overlay p {
+  align-self: flex-end; /* This pushes the caption to the right */
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-bottom: 0;
+  max-width:50rem;
+}
+
+.jumbotron .overlay p.caption {
+  font-size: .8rem;/* Adjust caption font size */
+  text-align: right;
+}
+
+
+.overlay .title-row {
+  display: flex;
+  font-size:1rem;
+  /* Use flexbox for horizontal alignment */
+  justify-content: space-between;
+  /* Space out elements */
+  align-items: center;
+  /* Align items vertically */
+}
+
+.title-row .year {
+  color: #999;
+  /* Match the color of the artist text */
+  margin-left: auto;
+  /* Add spacing between the artist and year */
+}
+
+.jumbotron.winner {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18), 0 1.5px 8px rgba(0, 0, 0, 0.10);
+  border-radius: 1.2rem;
+  height:35vh;
+  overflow: hidden;
+  position: relative;
+  transition:
+    box-shadow 0.25s cubic-bezier(.4, 2, .6, 1),
+    transform 0.25s cubic-bezier(.4, 2, .6, 1),
+    filter 0.25s;
+  filter: brightness(1.08) contrast(1.15) saturate(1.08);
+}
+
+.jumbotron.winner:hover {
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.28), 0 4px 16px rgba(0, 0, 0, 0.18);
+  transform: scale(1.025);
+  filter: brightness(1.13) contrast(1.22) saturate(1.18);
+  z-index: 2;
+}
+
+.jumbotron.winner .overlay {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.15) 100%);
+  color: #fff;
+  padding: 1.2rem 2rem;
+}
+
+
+.project-link:hover .title-overlay {
+  opacity: 1;
+}
+
+/* Ensure all images in the cards are the same size */
+.image-container {
+  width: 100%; /* Make the container responsive */
+  height: 50rem; /* Set a fixed height for the image container */
+  overflow: hidden; /* Hide any overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%; /* Make the image fill the container width */
+  height: 100%; /* Make the image fill the container height */
+  object-fit: cover; /* Maintain aspect ratio and crop excess */
+  display: block;
+}
+
+
+.card {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none;
+  border-radius: 1.1rem;
+  overflow: hidden;
+}
+
+
+/* Card horizontal layout improvements */
+.card-horizontal .card-body {
+  padding: 1.5rem;
+  max-width: 38rem;
+  /* Prevents text from being too wide */
+  width: 100%;
+}
+
+.card-horizontal .card-title,
+.card-horizontal .card-subtitle,
+.card-horizontal .card-text {
+  word-break: break-word;
+}
+
+.card-horizontal img {
+  object-fit: cover;
+  height: 220px;
+  min-height: 220px;
+  width: 100%;
+  border-radius: 0.5rem 0 0 0.5rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .card-horizontal .card-body {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .card-horizontal img {
+    height: 160px;
+    min-height: 160px;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+
+
+
+
+.card-horizontal {
+  background-color: rgba(174, 214, 214,.5)
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13), 0 2px 8px rgba(0, 0, 0, 0.09);
+  transform: translateY(-4px) scale(1.015);
+}
+
+
+.card-title {
+  font-family: 'Space Grotesk', 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #222;
+}
+.card-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: #e94e77;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.card-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+.card img {
+  filter: brightness(0.90) contrast(.95);
+  border-radius: 1.1rem 0 0 1.1rem;
+  transition: filter 0.2s;
+}
+
+.card:hover img {
+  filter: brightness(1) contrast(1) saturate(1.1);
+}
+
+.card-body {
+  padding:0;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 220px;
+  /* Adjust as needed for your card design */
+  object-fit: cover;
+  /* This makes the image fill the box, cropping if needed */
+  object-position: center;
+  /* Center the crop */
+  background: #eee;
+  /* Optional: placeholder background */
+}
+
+.card-body {
+  font-size:1rem;
+  padding-left: 2rem;
+} 
+
+.card h4 {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.card h3 {
+  text-transform: uppercase;
+  margin-top:0rem;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: #666;
+  font-weight: 400;
+}
+.row a {
+  text-decoration:none;
+  border:none;
+}
 /*****************************************************
 TYPOGRAPHY
 *****************************************************/
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Georgia', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-align:left;
-  margin: 3rem 0 .4rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 h1 {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom:1em;
+  text-transform: uppercase;
 }
 
-.home-title h1 {
-  font-family: 'Abril Fatface', sans-serif;
+
+h1.artist {
+  font-family: 'Limelight', sans-serif;
   color:#fff;
   font-size: 3rem;
-  margin-top: -1.2em;
-  margin-bottom: .2em;
+  text-transform: capitalize;
+  text-align: left
 }
+
+h1.project-title {
+  text-align: left;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
 
 h2 {
   font-size: 1.8rem;
@@ -64,6 +473,7 @@ h3 {
 }
 
 h4 {
+  text-transform: uppercase;
   font-size:1.2rem;
 }
 
@@ -71,6 +481,16 @@ h5 {
   text-transform:uppercase;
   font-size:1rem;
 }
+
+h5.modal-title {
+    margin: 0;
+  }
+
+.modal-lg, .modal-xl {
+--bs-modal-width: 90%;
+max-height:80vh;
+background-color: black;
+  }
 
 hr {
   display: block;
@@ -81,43 +501,19 @@ hr {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
   line-height: 1.6em;
   margin-bottom: 1.5em;
 }
 
-
-p.abstract {
-  border:1px solid gray;
-  background-color: #e5d3bb;
-  padding:2em;
-  font-size: 90%;
-  margin: 3em 0 4em 0em;
-}
-
-p.author {
-  margin: .5em 0 0em 0;
-  text-align: center;
-  text-transform: uppercase;
-  color:#666;
-}
-
-blockquote {
-  margin: -1em 4em 1em 4em;
-  font-size: 90%;
-  border:none;
-}
-
 a {
-  color: #005999;
-  font-weight:bold;
-  border-bottom: 2px dotted #87a7be;
+  font-weight: bold;
+  color: var(--bs-body-color);
 }
 
 a:visited {
- color: #44136c;
- border-bottom: 2px dotted #956cb7;
+  color: var(--bs-body-color);
 }
+
 
 a:hover {
   text-decoration:none;
@@ -132,27 +528,85 @@ li {
   margin-bottom:.4rem;
 }
 
-li ul li {
-  color:#666666;
-  list-style: none;
-  margin-bottom:1em;
+
+
+/*****************************************************
+GALLERY
+*****************************************************/
+
+
+#galleryContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  gap: .3rem; /* Spacing between images */
+  overflow: hidden; /* Prevent overflow */
 }
 
-.full-width {
-  margin-bottom:2rem;
+#galleryContainer img {
+  width: 100%; /* Make images fill their grid cell */
+  aspect-ratio: 1 / 1; /* Force images to be square */
+  object-fit: cover; /* Crop images to fit the square */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  transition: transform 0.3s ease; /* Optional: Add hover effect */
 }
 
-.full-width p {
-  width:100%;
-  padding: 0 15%;
-  margin:0;
-  font-style: italic;
+  #galleryContainer a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  #galleryContainer img {
+    display: block;
+    transition: transform 0.3s ease; /* Optional: Add a zoom effect on hover */
+  }
+
+  #galleryContainer img:hover {
+    transform: scale(1.05); /* Optional: Slight zoom on hover */
+  }
+
+
+  #galleryContainer a::after {
+    content: attr(data-sub-html); /* Use the data-sub-html attribute for the image name */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  #galleryContainer a:hover::after {
+    opacity: 1; /* Show the dark band with text on hover */
+  }
+
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* space between thumbnails */
+  justify-content: center; /* optional: center the grid */
+  padding: 20px 0;
 }
 
-.highlight {
-  background-color:#ccc;
+.gallery-grid img {
+  width: 150px;      /* fixed thumbnail width */
+  height: 150px;     /* fixed thumbnail height */
+  object-fit: cover; /* crop to fill the box, preserving aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
 }
 
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
 
 
 /*****************************************************
@@ -256,109 +710,121 @@ figcaption a {
   font-weight:normal;
 }
 
-footer {
-  margin-top:2em;
-  padding: 2em;
-  background-color: #823b3b;
-  color:#ccc;
-  text-align: center;
-}
-
-
-/*****************************************************
-DIRECTORY CARDS
-*****************************************************/
-.card {
-width:21%;
-min-width:235px;
-min-height:400px;
-margin: 3rem 2rem 0rem 0;
-float:left;
-opacity:.8;
-font-size:12px;
-}
-
-.card:hover {
-background:#eee;
-opacity:1;
-}
-
-.cards > a {
-opacity:1;
-color:#000;
-}
-
-.cards > a p {
-opacity:1;
-color:#333;
-}
-
-
-.cards > a:hover {
-//background:#eee;
-}
-
-.card-block {
-padding:1rem 1rem 1rem 1rem;
-min-height:14rem;
-}
-
-.card-img-top {
-width:100%;
-height:50%;
-
-}
-
-.card h4 {
-font-family:'Open Sans';
-font-size:1.2rem;
-margin-top:.5rem;
-}
-
-.card-text {
-font-size:.8rem;
-font-weight:normal;
-}
 
 
 /*****************************************************
 IMAGE CAROUSEL
 *****************************************************/
-
-.slick-slide img {
-  padding:0 2rem;
+.carousel {
+  height: 85vh; /* Set the carousel height to the full viewport height */
+  width:100%;
+  object-fit: contain; /* Maintain aspect ratio and fit the image within the container */
+  background: #000;
+border:1px solid black;
 }
 
-.slick-prev:before, .slick-next:before { font-family: FontAwesome; font-size: 40px; line-height: 1; color: gray; opacity: 0.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-.slick-prev:before { content: "\f053"; margin-right:5rem;}
-[dir="rtl"] .slick-prev:before { content: "\f054"; }
-
-[dir="rtl"] .slick-next { left: -10px; top: 70px; right: auto; }
-.slick-next:before { content: "\f054"; }
-[dir="rtl"] .slick-next:before { content: "\f053"; }
-
-.carousel img{
-  max-width:100%;
+.carousel-inner {
+  height:100%; /* Set the carousel height to the full viewport height */
+  object-fit: contain; /* Maintain aspect ratio and fit the image within the container */
 }
 
-p.carousel-caption {
-  color:black;
-  text-align:left;
-  font-face:'Open Sans';
-  font-size:1.4rem;
-  text-shadow:none;
-  border:0px solid black;
-  line-height:1.8rem;
-  bottom: 0;
-  left: 0;
-  position: relative;
-  width: 100%;
-  z-index: 2;
-  color:#666;
-  padding:0;
-  margin:.5rem 0 0 2rem;
+.carousel-item {
+  height:100%; /* Set the carousel height to the full viewport height */
+  object-fit: contain; /* Maintain aspect ratio and fit the image within the container */
+
 }
+
+.carousel-item active{
+  display: flex;
+  align-items: center;
+  object-fit: contain; /* Maintain aspect ratio and fit the image within the container */
+
+}
+
+.carousel-item img {
+  max-width: 100%; /* Ensure the image doesn’t exceed the carousel width */
+  max-height: 100%; /* Ensure the image doesn’t exceed the carousel height */
+  object-fit: contain; /* Maintain aspect ratio and fit the image within the container */
+
+}
+
+
+/* Footer Styles */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+/* Add to your main.css */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.footer-description {
+  flex: 0 0 60%;
+  max-width: 60%;
+  text-align: justify;
+}
+
+.footer-social {
+  flex: 0 0 40%;
+  max-width: 40%;
+  text-align: right;
+}
+
+.footer-social .social-buttons {
+  margin-bottom: 0;
+}
+
+.footer-social .social-buttons li {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+.footer-social i {
+  font-size: 2rem;
+}
+
+
+.footer-logo img {
+  max-height: 50px;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #ccc;
+}
+
+.footer-credits {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
+}
+
 
 
 } /* end media screen */

@@ -1,0 +1,67 @@
+---
+layout: base
+---
+
+{% include project-title.html %}
+
+{{ content }}
+
+
+
+<div id="gallery-thumbnails" class="row"></div>
+
+
+{% include carousel-modal.html %}
+
+{% include yml-to-json.html %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', async function () {
+    // Get album ID from front matter (injected into the page)
+    const albumId = {{ page.album-id | jsonify
+  }};
+  console.log("PM Album ID:", albumId)
+  const piwigoUrl = "http://localhost:3000/ws.php?";
+  const galleryContainer = document.getElementById('gallery-thumbnails');
+
+  // Fetch images from Piwigo API
+  const params = new URLSearchParams({
+    method: 'pwg.categories.getImages',
+    cat_id: albumId,
+    per_page: 100,
+    format: 'json'
+  });
+  const response = await fetch(piwigoUrl + params.toString());
+  const data = await response.json();
+  const images = data.result.images;
+
+  // Render thumbnails
+  galleryContainer.innerHTML = images.map((img, idx) => `
+      <div class="col-4 col-md-3 mb-3">
+        <img src="${img.derivatives.thumb.url}" 
+             data-index="${idx}" 
+             class="img-fluid gallery-thumb" 
+             alt="${img.name || ''}">
+      </div>
+    `).join('');
+
+  // Modal/Carousel logic
+  const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+  const carouselInner = document.querySelector('#galleryCarousel .carousel-inner');
+  document.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
+    thumb.addEventListener('click', function () {
+      // Build carousel slides
+      carouselInner.innerHTML = images.map((img, i) => `
+          <div class="carousel-item${i === idx ? ' active' : ''}">
+            <img src="${img.derivatives.large?.url || img.derivatives.medium?.url || img.element_url}" class="d-block w-100" alt="${img.name || ''}">
+            ${img.comment ? `<div class="carousel-caption d-none d-md-block"><p>${img.comment}</p></div>` : ''}
+          </div>
+        `).join('');
+      // Show modal and set carousel to correct slide
+      modal.show();
+      const carousel = new bootstrap.Carousel(document.getElementById('galleryCarousel'));
+      carousel.to(idx);
+    });
+  });
+  });
+</script>

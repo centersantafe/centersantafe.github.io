@@ -1,0 +1,26 @@
+<div>
+  <a class="winner" href="{{ include.link }}">
+    <div class="jumbotron winner" 
+      style="
+        height: {{ include.height }};
+        background-image: url('{{include.header-image-id}}');"
+      data-pic = "{{ include.header-image-id }}">
+      
+      <div class="overlay">      
+        <div class="title-row">
+          <p>
+            {% for award in include.award %}          
+            {{ award.award | default: award }}
+            {% unless forloop.last %}
+              &nbsp;&&nbsp;
+            {% endunless %}
+            {% endfor %}
+            &nbsp;<span style="color:#999;">{{ include.artist }}</span>
+            <span class="year">{{ include.year }}</span>
+          </p>
+          <!-- <p>Debug Link: {{ include.link }}</p>  -->
+        </div>        
+      </div>  
+    </div>
+  </a>
+</div>

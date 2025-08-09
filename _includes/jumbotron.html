@@ -2,12 +2,15 @@
 </div>
 {:/nomarkdown}
 
-<div class="jumbotron" style="
-      height: {{ include.height }}vh; 
-      background-image: url('{{site.baseurl}}/{{include.image-url}}')">
-    <h1 id="page-title">{{ include.title}}</h1>
-    <h2 id="page-subtitle">{{ include.text }}</h2>
-</div>
+<div class="jumbotron" 
+      style="
+      height: {{ include.height }};
+      background-image: url('{{include.image-id}}');"
+      data-pic = "{{ include.image-id }}">
+      <h3>{{ include.title}}</h3>
+      <h4>{{ include.subtitle }}</h4>
+      <p>{{ include.text }}</p>
+</div> 
 
 {::nomarkdown}
 <div class="container">

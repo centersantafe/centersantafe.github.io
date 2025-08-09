@@ -7,12 +7,42 @@
 
     {% include nav.html %}
 
+    <!-- gather page data from YML header-->
+    {% assign project-title = page.project-title %}
+    {% assign project-short-desc = page.project-short-desc %}
+    {% assign artist = page.artist %}
+    {% assign header-image-id = page.header-image-id | default: page.header-image-url %}
+    {% assign header-height = page.header-height | default: "80vh" %}
+    {% assign header-position = page.header-position %}        
+    {% assign header-caption = page.header-caption %}
+    {% assign width = page.width %}
+    <!-- if header-image-id is set, include header-image.html -->
+    <!-- this is a jumbotron with a background image, -->
+    <!-- it is included before the container div, so it has full viewport width -->
+    {% if header-image-id  %}  
+      {% include header-image.html   
+        project-title = project-title
+        project-short-desc = project-short-desc        
+        artist = artist
+        header-image-id = header-image-id
+        header-height = header-height  
+        header-position = header-position
+        header-caption = header-caption
+      %}
+    {% endif %}
+    
+    {% if width != "full" %}
     <div class="container">
-      {{ content }}
-    </div> <!-- /main -->
-
-
+    {% else %}
+    <div class="container full-width">
+    {%endif %}
+    {{ content }}
+    </div> 
+    
+  
     {% if jekyll.environment == 'production' and site.analytics_id %}{% include google_analytics.html %}{% endif %}
+
+    {% include footer.html %}
 
     {% include bottom-js.html %}
 

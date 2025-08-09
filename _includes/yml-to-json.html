@@ -1,0 +1,7 @@
+<!-- this exposes YAML header data in a JSON object-->
+<script>
+    const pageData = {
+      headerImageId: {{ page.header-image-id | default: "null" }},
+      albumId: {{ page.album-id | default: "null" }}
+    };
+  </script>

@@ -1,0 +1,37 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <!--<div class="footer-logo">
+      <a href="/">
+        <img src="/assets/images/logo-footer.png" alt="Center Santa Fe Logo" />
+      </a>
+    </div>
+  -->
+    <div class="footer-description">
+      Founded in 1994 in Santa Fe, NM, CENTER is a 501(c)(3) not-for-profit organization supporting lens-based projects through education, public platforms, funding and partnerships. 
+    </div>
+    <!--<div class="footer-links">
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/programs/">Programs</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+  -->
+    <div class="footer-social">
+      <ul class="list-inline social-buttons">
+        {% for network in site.social %}
+        <li>
+            <a href="{{ network.url }}">
+                <i class="fa fa-{{ network.title }}"></i>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+  </div>
+  <div class="footer-credits">
+    <p>PO BOX 8372, SANTA FE, NEW MEXICO 87504  •  (505) 933-9146  •   PROGRAMS@CENTERSANTAFE.ORG</p>
+    <p>&copy; {{ site.time | date: "%Y" }} Center Santa Fe.  Images are copyrighted by the respective artists.</p>
+  </div>
+</footer>

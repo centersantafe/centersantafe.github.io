@@ -1,5 +1,20 @@
-title: Amaranth
-description: Digital Humanities and Public Scholarship Studio @ UNM
-url: https://amaranth-unm.github.io
+title: CENTER Archive
+description: A new animated archive for CENTER Santa Fe
+baseurl:
 safe: true
-environment: production
+social:
+  - title: instagram
+    url: https://www.instagram.com/centersantafe/
+  - title: facebook
+    url: https://www.facebook.com/CENTERsantafe 
+  - title: bluesky
+    url: http://bsky.app/profile/centersantafe.bsky.social
+  - title: linkedin
+    url: https://www.linkedin.com/company/centersantafe/ 
+  - title: threads
+    url: https://www.threads.net/@centersantafe 
+  - title: x
+    url: https://x.com/centersantafe
+
+include:
+  - _data

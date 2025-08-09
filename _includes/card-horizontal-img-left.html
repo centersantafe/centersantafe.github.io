@@ -1,0 +1,27 @@
+<div class="card card-horizontal mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img data-pic="{{ include.image }}" class="img-fluid rounded-start" alt="">
+    </div>
+    <div class="col-md-8 d-flex flex-column">
+      <div class="card-body">
+      <h3 class="card-title">{{ include.header }}</h3>
+      <h6 class="card-subtitle mb-2 text-muted">{{ include.subtitle }}</h6>
+      <p class="card-text">{{ include.text }}</p>
+      {% if include.social %}
+      <div class="mt-auto d-flex justify-content-end">
+        <ul class="list-inline social-buttons mb-0">
+          {% for network in include.social %}
+          <li class="list-inline-item">
+            <a href="{{ network.url }}">
+              <i class="fa fa-{{ network.title }}"></i>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    </div>
+  </div>
+</div>

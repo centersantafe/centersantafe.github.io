@@ -5,6 +5,54 @@ NAVIGATION
 
 @media screen {
 
+  #search-results {
+      margin-top: 1em;
+      padding: 0;
+      list-style: none;
+      max-width: 500px;
+    }
+  
+    #search-results li {
+      background: #f8f9fa;
+      margin-bottom: 0.5em;
+      border-radius: 4px;
+      padding: 0.75em 1em;
+      transition: background 0.2s;
+      border: 1px solid #e0e0e0;
+    }
+  
+    #search-results li a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 500;
+    }
+  
+    #search-results li:hover {
+      background: #e9ecef; }
+
+
+
+
+  .navbar li, .navbar a {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+
+.year-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.25em 0.75em;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.year-nav a.active-year,
+.year-nav a:hover {
+  background: #eee;
+  color: #007bff;
+}
 
 } /* end media screen */
 

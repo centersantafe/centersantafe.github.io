@@ -1,0 +1,23 @@
+{{ assign matching_pages = include.matching_pages }}
+
+<div class="row">
+{% for matched_page in matching_pages %}
+
+  <div class="col-md-4 mb-4">
+    <!--<a href="../../project?album_id={{ matched_page.album-id }}&image_id={{ matched_page.header-image-id }}"> -->
+
+    <div class="card listing h-100 shadow-sm">
+      <a href="{{ matched_page.artist | replace: ' ', '-' }}.html">
+        <img class="card-img-top" alt="{{ matched_page.project-title }}" data-pic="{{ matched_page.header-image-id }}">
+        <div class="card-body d-flex flex-column">
+          <h4 class="text-left mt-3">{{ matched_page.artist }}</h4>
+          <p class="text-left">{{ matched_page.project-title }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+{% else %}
+  <p>No matching pages found.</p>
+{% endfor %}
+</div>

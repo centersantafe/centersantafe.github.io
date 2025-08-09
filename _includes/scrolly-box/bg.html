@@ -1,0 +1,30 @@
+{::nomarkdown}
+</div>
+{:/nomarkdown}
+
+<div class="bg-image" 
+style="
+      height: {{ include.height }};
+      background-image: url('{{include.image-id}}');"
+      data-pic = "{{ include.image-id }}">
+  <h1 id="page-title">{{ include.title}}</h1>
+  <h2 id="page-subtitle">{{ include.text }}</h2>
+
+  {% if include.box-content %}
+
+    <div style="height: {{ include.pre-box-space }}">
+      &nbsp;
+    </div>
+
+    <div class="bg-text-box">
+      {{ include.box-content | markdownify }}
+    </div>
+
+  {% endif %}
+
+
+</div>
+
+{::nomarkdown}
+<div class="container">
+{:/nomarkdown}

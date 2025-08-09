@@ -1,0 +1,18 @@
+<div class="card card-horizontal mb-4" style="max-width: 100%;">
+  <div class="row g-0 align-items-center">
+    <div class="col-md-4">
+      <img src="{{ include.image-url }}" class="img-fluid rounded-start" alt="{{ include.title }}"
+        style="object-fit:cover; height:100%; min-height:220px;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title mb-1">{{ include.title }}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{ include.subtitle }}</h6>
+        <p class="card-text">{{ include.text }}</p>
+        {% if include.footer %}
+        <p class="card-text"><small class="text-muted">{{ include.footer }}</small></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

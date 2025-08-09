@@ -1,0 +1,20 @@
+<!-- called from base layout  -->
+<!-- called  before container div, so it has full viewport width -->
+<div class="jumbotron" 
+    style="
+      height: {{ include.header-height }}; 
+      background-image: url('{{include.header-image-id}}');
+      background-position: {{include.header-position}};
+    ">
+  <div class="overlay">
+    {% if include.artist %}
+    <div class="container"> 
+      <h1 class="artist" class="artist">{{ include.artist}}</h1>
+    </div>
+    {% endif %}
+    
+      <!--<h1 id="project-title">{{ include.project-title}}</h1>-->
+      <p class="caption">{{ include.header-caption }}</p>
+    
+  </div>  
+</div>

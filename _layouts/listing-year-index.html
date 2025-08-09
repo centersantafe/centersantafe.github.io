@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+{% include nav-listing-years.html %}
+
+{{ content }}
+
+{% assign matching_pages = site.pages | where: "project-year", page.year %}
+
+{% include card-listing.html 
+matching_pages = matching_pages
+%}
+
+{% include yml-to-json.html %}
