@@ -1,8 +1,19 @@
----
----
-// Define the Piwigo API URL and the URL string
-const piwigoUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000?" }}';
-const piwigoBaseUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000" | remove: "?" }}';
+// Configuration - automatically detects environment
+const CONFIG = {
+  getApiBaseUrl: function() {
+    // Detect if we're running locally or in production
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      //return 'http://localhost:3000';
+      return 'http://144.126.214.254/piwigo-api';
+    } else {
+      return 'http://144.126.214.254/piwigo-api';
+    }
+  }
+};
+
+// Define the Piwigo API URL and the URL string  
+const piwigoUrl = CONFIG.getApiBaseUrl() + '?';  // Direct query: /piwigo-api?method=...
+const piwigoBaseUrl = CONFIG.getApiBaseUrl();    // Base: /piwigo-api
 const urlString = window.location.search; // Gets the query string part of the URL
 
 
@@ -22,7 +33,7 @@ async function populateImages() {
     const picId = element.getAttribute("data-pic");
     console.log("Processing element with picId:", picId);
     
-    const apiUrl = `${piwigoBaseUrl}/ws.php?method=pwg.images.getInfo&image_id=${picId}&format=json`;
+    const apiUrl = `${piwigoUrl}method=pwg.images.getInfo&image_id=${picId}&format=json`;
 
     fetch(apiUrl)
       .then(response => response.json())
