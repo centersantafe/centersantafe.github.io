@@ -63,7 +63,7 @@ albumIdMap = createAlbumIdMap();
 </div>
 
 <script type="text/javascript">
-  const piwigoUrl = 'http://localhost:3000?'; // Update with your Piwigo API URL
+  const piwigoUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000?" }}';
 
   // Define URL params for the Piwigo API request
   const apiParams = new URLSearchParams({

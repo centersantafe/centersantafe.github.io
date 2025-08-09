@@ -6,7 +6,7 @@ author: Fred Gibbs
 date: 2024-10-28
 header-image-url: "/assets/images/archives-header.png"
 header-title: 
-header-height: 60vh 
+header-height:
 header-position:
 ---
 

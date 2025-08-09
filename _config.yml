@@ -18,3 +18,8 @@ social:
 
 include:
   - _data
+
+# Piwigo Configuration
+piwigo:
+  #api_url: "http://localhost:3000?"
+  api_url: http://144.126.214.254//piwigo-api

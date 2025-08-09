@@ -1,5 +1,8 @@
+---
+---
 // Define the Piwigo API URL and the URL string
-const piwigoUrl = 'http://localhost:3000?'; // Define URL params for the Piwigo API request
+const piwigoUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000?" }}';
+const piwigoBaseUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000" | remove: "?" }}';
 const urlString = window.location.search; // Gets the query string part of the URL
 
 
@@ -19,7 +22,7 @@ async function populateImages() {
     const picId = element.getAttribute("data-pic");
     console.log("Processing element with picId:", picId);
     
-    const apiUrl = `http://localhost:3000/ws.php?method=pwg.images.getInfo&image_id=${picId}&format=json`;
+    const apiUrl = `${piwigoBaseUrl}/ws.php?method=pwg.images.getInfo&image_id=${picId}&format=json`;
 
     fetch(apiUrl)
       .then(response => response.json())
