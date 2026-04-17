@@ -1,19 +1,11 @@
-// Configuration - automatically detects environment
-const CONFIG = {
-  getApiBaseUrl: function() {
-    // Detect if we're running locally or in production
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      //return 'http://localhost:3000';
-      return 'http://144.126.214.254/piwigo-api';
-    } else {
-      return 'http://144.126.214.254/piwigo-api';
-    }
-  }
-};
+// Use the API URL injected from _config.yml via yml-to-json.html.
+// Falls back to the production URL if the variable isn't set (e.g., JS loaded standalone).
+const piwigoBaseUrl = (typeof piwigoApiUrl !== 'undefined' && piwigoApiUrl)
+  ? piwigoApiUrl
+  : 'https://unm.cedarplatform.org/piwigo-api';
 
-// Define the Piwigo API URL and the URL string  
-const piwigoUrl = CONFIG.getApiBaseUrl() + '?';  // Direct query: /piwigo-api?method=...
-const piwigoBaseUrl = CONFIG.getApiBaseUrl();    // Base: /piwigo-api
+// Define the Piwigo API URL and the URL string
+const piwigoUrl = piwigoBaseUrl + '?';  // Direct query: /piwigo-api?method=...
 const urlString = window.location.search; // Gets the query string part of the URL
 
 
