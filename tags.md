@@ -50,8 +50,8 @@ width: full
 
 <script type="text/javascript">
 
-// Define the Piwigo API URL
-const piwigoUrl = 'http://localhost:3000?'; // Replace with your proxy or direct API URL
+// Piwigo API URL from _config.yml (site.piwigo.api_url)
+const piwigoUrl = '{{ site.piwigo.api_url }}?';
 
 // Define URL params for the Piwigo API request to fetch tags
 const urlParams = new URLSearchParams({

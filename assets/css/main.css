@@ -62,8 +62,8 @@
   text-decoration: none;
 }
 
-#tag-cloud a:hover {
-  color: #000; /* Darker color on hover */
+#tag-cloud a:not(.tag-index-link):hover {
+  color: #000;
   text-decoration: underline;
 }
 
@@ -75,31 +75,52 @@
 }
 
 .tag-index-letter {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  color: #333;
+  color: #aaa;
   text-align: right;
-  width:1.5rem
+  width: 1.5rem;
 }
 
 .tag-index-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-left:1rem;
+  margin-left: 1rem;
   line-height: 1.1rem;
 }
 
 .tag-index-link {
-  font-size: 1rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #777;
   text-decoration: none;
-  margin: 0 5px 0 0 ;
-  transition: text-decoration 0.2s;
+  margin: 0;
+  padding: 0.2em 0.65em;
+  border: 1px solid #ccc;
+  border-radius: 2em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .tag-index-link:hover {
-  text-decoration: underline;
+  background: hsla(180, 32.79%, 76.08%, 0.4);
+  border-color: hsla(180, 32.79%, 50%, 1);
+  color: #111;
+  text-decoration: none;
+}
+
+[data-bs-theme="dark"] .tag-index-letter {
+  color: #555;
+}
+
+[data-bs-theme="dark"] .tag-index-link {
+  color: #999;
+  border-color: #444;
+}
+
+[data-bs-theme="dark"] .tag-index-link:hover {
+  background: hsla(180, 32.79%, 20%, 1);
+  border-color: hsla(180, 32.79%, 50%, 1);
+  color: #fff;
 }
 
 
@@ -351,7 +372,7 @@
 
 
 .card-horizontal {
-  background-color: rgba(174, 214, 214,.5)
+  background-color: hsla(180, 32.79%, 76.08%, 1);
 }
 
 .card:hover {
@@ -365,7 +386,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  color: #222;
+  color: #111;
 }
 .card-subtitle {
   font-family: 'Nunito', sans-serif;
@@ -376,8 +397,16 @@
 }
 .card-text {
   font-size: 1rem;
-  color: #444;
+  color: #666;
   line-height: 1.5;
+}
+
+[data-bs-theme="dark"] .card-horizontal {
+  background-color: hsla(180, 32.79%, 30%, 1);
+}
+
+[data-bs-theme="dark"] .card-text {
+  color: #ccc;
 }
 
 

@@ -54,6 +54,16 @@ NAVIGATION
   color: #007bff;
 }
 
+[data-bs-theme="dark"] .year-nav a {
+  color: #ddd;
+}
+
+[data-bs-theme="dark"] .year-nav a.active-year,
+[data-bs-theme="dark"] .year-nav a:hover {
+  background: #333;
+  color: #6ea8fe;
+}
+
 } /* end media screen */
 
 
