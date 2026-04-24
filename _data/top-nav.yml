@@ -1,0 +1,76 @@
+# Top nav structure for the site.
+# - A top-level entry with `url` renders as a single link.
+# - A top-level entry with `items` renders as a dropdown.
+# - Inside `items`, use `divider: true` for a visual separator.
+
+- title: "About"
+  items:
+    - title: "Mission"
+      url: "/about/"
+    - title: "History"
+      url: "/about/history"
+    - title: "Leadership"
+      url: "/about/leadership"
+    - divider: true
+    - title: "Activating the Archive"
+      url: "/about/activating-the-archive"
+    - title: "Contact"
+      url: "/about/contact"
+
+- title: "Programs"
+  items:
+    - title: "Blue Earth Fiscal Sponsorship"
+      url: "/programs/blue_earth"
+
+- title: "Awards & Grants"
+  items:
+    - title: "Annual Calls for Entry"
+      url: "/awards-and-grants/calls-for-entry"
+    - divider: true
+    - title: "Project Launch Grant"
+      url: "/awards-and-grants/launch-grant"
+    - title: "Project Development Grant"
+      url: "/awards-and-grants/development-grant"
+    - title: "Me&Eve Award"
+      url: "/awards-and-grants/meandeve"
+    - title: "The CENTER Awards"
+      url: "/awards-and-grants/center-awards"
+    - title: "Multimedia Award"
+      url: "/awards-and-grants/multimedia-award"
+    - title: "Works by Hand Award"
+      url: "/awards-and-grants/works-by-hand"
+    - title: "Teaching Award"
+      url: "/awards-and-grants/teaching-award"
+    - divider: true
+    - title: "Blue Earth Sponsorship"
+      url: "/programs/blue_earth"
+
+- title: "Review Santa Fe"
+  items:
+    - title: "Overview"
+      url: "/review-santa-fe/"
+    - title: "Portfolio Reviewers"
+      url: "/review-santa-fe/reviewers"
+    - title: "Portfolio Walk"
+      url: "/review-santa-fe/portfolio-walk"
+    - title: "Selection Committee"
+      url: "/review-santa-fe/selection-committee"
+    - divider: true
+    - title: "Calls for Entry FAQs"
+      url: "/review-santa-fe/calls-for-entry-faqs"
+
+- title: "Archive"
+  items:
+    - title: "Listings"
+      url: "/archive/listings/2022"
+    - title: "Winners"
+      url: "/archive/winners"
+    - title: "Artists"
+      url: "/archive/artists"
+    - divider: true
+    - title: "Gallery"
+      url: "/archive/gallery"
+    - title: "Tags"
+      url: "/archive/tags"
+    - title: "Map"
+      url: "/archive/map"

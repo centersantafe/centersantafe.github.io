@@ -1,0 +1,12 @@
+{% comment %}
+  A labeled inline item: LABEL • text
+  Used across the site for addresses, hours, package/juror details, etc.
+
+  The `text` argument is run through `markdownify` (with surrounding <p>
+  tags stripped) so inline markdown such as [label](url) and _em_ works.
+
+  Usage:
+    info-item.html with label="GALLERY ADDRESS" text="1570 Pacheco St."
+    info-item.html with label="EMAIL" text="[write to us](mailto:x@y.org)"
+{% endcomment %}
+<p class="info-item"><strong>{{ include.label }}</strong> &bull; {{ include.text | markdownify | remove: '<p>' | remove: '</p>' }}</p>

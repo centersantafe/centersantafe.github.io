@@ -1,26 +1,44 @@
+{% comment %}
+  Winner card: background image with an overlay caption.
+
+  Params:
+    link             – URL the card links to
+    header-image-id  – background image URL or Piwigo id
+    height           – CSS height of the card
+    artist           – Artist name
+    year             – Year
+    award            – Award name or list of awards (used on the all-winners index)
+    hide-award       – When truthy, caption shows "{year}: {artist}"
+                       rather than the default award/artist/year form.
+                       Used on single-award pages where the award name is
+                       already the page heading.
+{% endcomment %}
 <div>
   <a class="winner" href="{{ include.link }}">
-    <div class="jumbotron winner" 
+    <div class="jumbotron winner"
       style="
         height: {{ include.height }};
-        background-image: url('{{include.header-image-id}}');"
-      data-pic = "{{ include.header-image-id }}">
-      
-      <div class="overlay">      
+        background-image: url('{{ include.header-image-id }}');"
+      data-pic="{{ include.header-image-id }}">
+
+      <div class="overlay">
         <div class="title-row">
           <p>
-            {% for award in include.award %}          
-            {{ award.award | default: award }}
-            {% unless forloop.last %}
-              &nbsp;&&nbsp;
-            {% endunless %}
-            {% endfor %}
-            &nbsp;<span style="color:#999;">{{ include.artist }}</span>
-            <span class="year">{{ include.year }}</span>
+            {% if include.hide-award %}
+              <span class="year">{{ include.year }}</span>:&nbsp;{{ include.artist }}
+            {% else %}
+              {% for award in include.award %}
+              {{ award.award | default: award }}
+              {% unless forloop.last %}
+                &nbsp;&&nbsp;
+              {% endunless %}
+              {% endfor %}
+              &nbsp;<span style="color:#999;">{{ include.artist }}</span>
+              <span class="year">{{ include.year }}</span>
+            {% endif %}
           </p>
-          <!-- <p>Debug Link: {{ include.link }}</p>  -->
-        </div>        
-      </div>  
+        </div>
+      </div>
     </div>
   </a>
 </div>

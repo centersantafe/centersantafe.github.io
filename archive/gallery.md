@@ -63,7 +63,10 @@ albumIdMap = createAlbumIdMap();
 </div>
 
 <script type="text/javascript">
-  const piwigoUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000?" }}';
+  // Piwigo API URL from _config.yml (site.piwigo.api_url). The `?`
+  // separator is appended here so it always ends up before the query
+  // string, regardless of whether the configured URL has a trailing `?`.
+  const piwigoUrl = '{{ site.piwigo.api_url | default: "http://localhost:3000" }}?';
 
   // Define URL params for the Piwigo API request
   const apiParams = new URLSearchParams({

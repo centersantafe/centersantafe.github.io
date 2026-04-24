@@ -1,99 +1,65 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">CENT<span style="display: inline-block; transform: scaleX(-1);">E</span><span style="display: inline-block; transform: scaleX(-1);">R</span>archive
+{% comment %}
+  Top nav for the site. Structure comes from _data/top-nav.yml.
+
+  Each top-level entry:
+    - with `url`   -> single link
+    - with `items` -> dropdown of sub-entries
+  Sub-entries:
+    - with `url`           -> link
+    - with `divider: true` -> <hr> separator
+
+  Generic class names (no framework assumed). Styling lives in the CSS.
+{% endcomment %}
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="{{ site.baseurl }}/">
+      CENT<span style="display: inline-block; transform: scaleX(-1);">E</span><span style="display: inline-block; transform: scaleX(-1);">R</span>archive
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+    <button class="site-nav-toggler" type="button" aria-controls="siteNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="site-nav-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/about">About</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/listings/2022">Listings</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/winners">Winners</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Programs
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{site.baseurl}}/programs/blue_earth">Blue Earth</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/gallery">Gallery</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/tags">Tags</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/map">Map</a>
-        </li>
-
-        
-<!--
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Scrolly Boxes
-          </a>
-          <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/images">Basic backgrounds & headers</a></li>
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/bg-scrollbox">Backgrounds with scrolly boxes</a></li>
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/bg-switch">Background switching with scrolly boxes</a></li>
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/side-scroll">Side scrolling text</a></li>
-              <li><a class="dropdown-item" href="{{site.baseurl}}/samples/directory">Directory</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Website Guides
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/getting-started">Getting Started</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/editing-your-site">Editing Your Site</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/using-images">Loading images</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/working-locally">Working Locally</a></li>
-            <li><a class="dropdown-item" href="{{site.baseurl}}/guides/code">Code samples</a></li>
-          </ul> 
-          </li>
--->
-<!--
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-        -->
+    <div class="site-nav-collapse" id="siteNavCollapse">
+      <ul class="site-nav-list">
+        {% for item in site.data.top-nav %}
+          {% if item.items %}
+            <li class="site-nav-item has-dropdown">
+              <a class="site-nav-link site-nav-dropdown-toggle" href="#" role="button" aria-expanded="false">
+                {{ item.title }}
+              </a>
+              <ul class="site-nav-dropdown">
+                {% for subitem in item.items %}
+                  {% if subitem.divider %}
+                    <li><hr class="site-nav-dropdown-divider"></li>
+                  {% else %}
+                    <li>
+                      <a class="site-nav-dropdown-item" href="{{ site.baseurl }}{{ subitem.url }}">
+                        {{ subitem.title }}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="site-nav-item">
+              <a class="site-nav-link" href="{{ site.baseurl }}{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
-      <!-- <input type="text" id="search-box" placeholder="Search...">
-      <ul id="search-results"></ul> -->
-      <div class="nav-item">
-        <a href="#" class="nav-link" id="dark-mode-toggle" title="Toggle dark mode">🌙 Dark</a>
-      </div>
-      <div class="dropdown">
-        <input type="text" id="search-box" class="form-control dropdown-toggle" data-bs-toggle="dropdown"
-          aria-expanded="false" autocomplete="off" placeholder="Search...">
-        <ul id="search-results" class="dropdown-menu" style="width:100%;"></ul>
-      </div>
 
+      <div class="site-nav-actions">
+        <a href="#" class="site-nav-link" id="dark-mode-toggle" title="Toggle dark mode">🌙 Dark</a>
+
+        <div class="site-nav-search">
+          <input type="text" id="search-box" class="site-nav-search-input" autocomplete="off" placeholder="Search...">
+          <ul id="search-results" class="site-nav-search-results"></ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

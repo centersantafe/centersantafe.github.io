@@ -16,7 +16,7 @@ title: CENTER Winners
   {% assign award = matched_page.award %}
   {% assign year = matched_page.project-year %}
   {% assign header-image-id = matched_page.header-image-id %}
-  {% assign link = "/listings/" | append: matched_page.project-year | append: "/" | append: artist | replace: ' ', '-' | downcase  | append: ".html" %} 
+  {% assign link = "/archive/listings/" | append: matched_page.project-year | append: "/" | append: artist | replace: ' ', '-' | downcase  | append: ".html" %} 
 
   {% include card-winner.html
     height = 50

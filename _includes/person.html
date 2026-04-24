@@ -1,0 +1,26 @@
+{% comment %}
+  A person bio block: name, optional pronouns, role, affiliation, and multi-paragraph bio.
+  Used on the leadership / staff / board page.
+
+  Usage:
+    person.html with
+      name="Laura Wzorek Pressley, MPA"
+      pronouns="she/her"
+      role="Executive Director"
+      affiliation=""
+      link=""
+      bio="Laura works at the intersection of strategy..."
+{% endcomment %}
+<div class="person">
+  <h3 class="person-name">
+    {{ include.name }}{% if include.pronouns %} <span class="person-pronouns">({{ include.pronouns }})</span>{% endif %}{% if include.role %} &bull; <span class="person-role">{{ include.role }}</span>{% endif %}
+  </h3>
+  {% if include.affiliation or include.link %}
+  <p class="person-affiliation">
+    {% if include.affiliation %}{{ include.affiliation }}{% endif %}{% if include.affiliation and include.link %} &bull; {% endif %}{% if include.link %}<a href="https://{{ include.link | remove: 'https://' | remove: 'http://' }}">{{ include.link | remove: 'https://' | remove: 'http://' }}</a>{% endif %}
+  </p>
+  {% endif %}
+  <div class="person-bio">
+    {{ include.bio | markdownify }}
+  </div>
+</div>
